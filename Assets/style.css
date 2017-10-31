@@ -1,0 +1,69 @@
+body {
+    background-image: url("images/background.jpg");
+    
+}
+
+.jumbotronbackground {
+    color: rgb(0, 0, 0)!important; 
+    text-align: center;
+    }
+
+#GameTitle{
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.winslossbar{
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+.computerchoicebar{
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+.userchoicebar{
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+#diamondyellow{
+    width: 30%;
+    margin-left: 36%;
+}
+
+#diamondblue{
+    width: 30%;
+    margin-left: 36%;
+}
+
+#diamondred{
+    width: 30%;
+    margin-left: 36%;
+}
+
+#diamondgreen{
+    width: 30%;
+    margin-left: 36%;
+}
+
+.btn-lg{
+    margin-left: 46%;
+    color: #ffffff; 
+    background-color: #611BBD; 
+    border-color: #130269;
+}
+.btn-lg:hover, 
+.btn-lg:focus, 
+.btn-lg:active, 
+.btn-lg.active, 
+.open .dropdown-toggle.btn-lg { 
+  color: #ffffff; 
+  background-color: #49247A; 
+  border-color: #130269; 
+} 

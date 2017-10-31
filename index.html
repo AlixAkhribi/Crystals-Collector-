@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+    <meta charset="utf-8">
+    <title>Crystals Collector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron jumbotronbackground">
+            <div id="GameTitle">
+                <h1>Crystal Collector</h1>
+            </div>
+            <p>You will be given a random number at the start of the game. There are four crystals below. By clicking on a crystal
+                you will add a specific amount of points to your total score. You will win the game by matching your total
+                score to random number, you lose the game if your total score goes above the random number. The value of
+                each crystals is hidden from you until you click on it. Each time when the games starts, the game will change
+                value of each crystals.
+
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body  winslossbar">
+                Wins/Loss:
+                <span id="wins">0</span>
+                /
+                <span id="loss"> 0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body computerchoicebar">
+                Number Chosen by Computer:
+                <span id="computernumber"> 0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body userchoicebar">
+                User:
+                <span id="usernumber"> 0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img id="diamondyellow" src="Assets/Images/yellow-diamond.png">
+                    </div>
+                    <div class="col-md-3">
+                        <img id="diamondblue" src="Assets/Images/blue-diamond.png">
+                    </div>
+                    <div class="col-md-3">
+                        <img id="diamondred" src="Assets/Images/red-diamond.png">
+                    </div>
+                    <div class="col-md-3">
+                        <img id="diamondgreen" src="Assets/Images/green-diamond.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-body button">
+                <span id="resetbutton">
+                    <button type="button" class="btn btn-primary btn-lg">Reset</button>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <script>
+
+
+        /* ================== Resources ==================
+        https://www.freecodecamp.org/challenges/generate-random-whole-numbers-with-javascript
+
+        ================================================*/
+
+
+
+        /* ================== Pseudo Code ==================
+
+            Computer chooses number from 0 - 70
+            (save a random number to a variable the computer chooses)
+            Player has 4 diamond buttons to choose from 
+                - create 4 diamond buttons
+            Each diamond (4) has a random number
+                - assign random numbers four times (create function?)
+                - creat function because this repeats often
+            Player has to match number by clicking diamonds
+            Player keeps adding up numbers
+            If player matches numner = wins
+            If player exceeds number = lose 
+            Keep track of win/loss on new game
+        
+        ====================================================*/
+
+
+        // All the Variables Needed for the Game // 
+
+
+        // This makes it so the computerNumGen variable returns a random number between 1-50 // 
+
+        var computerNumGen = Math.floor(Math.random() * 50 + 20);
+
+
+        var diamond = [];
+        var wins = 0;
+        var losses = 0;
+        var userNumber = 0;
+
+
+        // Assigns a number 1 to diamond[yellow]. Number will replace yellow //
+
+        // function randomNumGen (x) {
+        //     return Math.floor(Math.random() * x + x);
+        // }
+        // for reference from Daniel
+        // diamond[0] = randomNumGen(1);
+        diamond[0] = Math.floor(Math.random() * 1 + 1);
+
+
+        // Assigns a number between 10-20 to diamond[blue]. Number will replace blue //
+
+        diamond[1] = Math.floor(Math.random() * 10 + 10);
+
+
+        // Assigns a number between 20-40 to diamond[red]. Number will replace red //
+
+        diamond[2] = Math.floor(Math.random() * 20 + 20);
+
+
+        // Assigns a number between 40-50 to diamond[red]. Number will replace green //
+
+        diamond[3] = Math.floor(Math.random() * 10 + 40);
+
+
+        console.log(computerNumGen);
+        console.log(diamond);
+
+
+        // Button Clicks //
+
+        $("#diamondyellow").click(function () {
+            userNumber = diamond[0] + userNumber;
+            $("#usernumber").html(userNumber);
+            winGame();
+
+        });
+
+        $("#diamondblue").click(function () {
+            userNumber = diamond[1] + userNumber;
+            $("#usernumber").html(userNumber);
+            winGame();
+
+        });
+
+        $("#diamondred").click(function () {
+            userNumber = diamond[2] + userNumber;
+            $("#usernumber").html(userNumber);
+            winGame();
+
+        });
+
+        $("#diamondgreen").click(function () {
+            userNumber = diamond[3] + userNumber;
+            $("#usernumber").html(userNumber);
+            winGame();
+
+        });
+
+
+        // Win or Lose Functions //
+
+        function winGame() {
+            if (userNumber === computerNumGen) {
+                wins++;
+                $("#wins").html(wins);
+
+            }
+
+            else if (userNumber > computerNumGen) {
+                losses++;
+                $("#loss").html(losses);
+            }
+        }
+
+
+        // Display Number on the Screen //
+        $("#computernumber").html(computerNumGen);
+
+        // Reset Button // 
+
+
+        /* Self Notes: 
+         win when user number = computer number 
+         lose when our number exceeds computer number 
+         if number is less , we can keep playing
+        */
+
+
+    </script>
+</body>
+
+</html>
