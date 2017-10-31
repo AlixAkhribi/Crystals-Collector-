@@ -51,19 +51,3 @@ body {
     width: 30%;
     margin-left: 36%;
 }
-
-.btn-lg{
-    margin-left: 46%;
-    color: #ffffff; 
-    background-color: #611BBD; 
-    border-color: #130269;
-}
-.btn-lg:hover, 
-.btn-lg:focus, 
-.btn-lg:active, 
-.btn-lg.active, 
-.open .dropdown-toggle.btn-lg { 
-  color: #ffffff; 
-  background-color: #49247A; 
-  border-color: #130269; 
-} 

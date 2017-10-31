@@ -79,16 +79,6 @@
     </div>
     </div>
 
-    <div class="container">
-        <div class="panel panel-default">
-            <div class="panel-body button">
-                <span id="resetbutton">
-                    <button type="button" class="btn btn-primary btn-lg">Reset</button>
-                </span>
-            </div>
-        </div>
-    </div>
-
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
@@ -195,17 +185,31 @@
 
 
         // Win or Lose Functions //
+        function gameOver(){
+            diamond[0] = Math.floor(Math.random() * 1 + 1);
+            diamond[1] = Math.floor(Math.random() * 10 + 10);
+            diamond[2] = Math.floor(Math.random() * 20 + 20);
+            diamond[3] = Math.floor(Math.random() * 10 + 40);
+            var computerNumGen = Math.floor(Math.random() * 50 + 20);
+            userNumber = 0;
+            $("#computernumber").html(computerNumGen);
+            $("#usernumber").html(userNumber);
+        }
+
 
         function winGame() {
             if (userNumber === computerNumGen) {
                 wins++;
                 $("#wins").html(wins);
+                gameOver();
 
             }
 
             else if (userNumber > computerNumGen) {
                 losses++;
                 $("#loss").html(losses);
+                gameOver();
+                
             }
         }
 
